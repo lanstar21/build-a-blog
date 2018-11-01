@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<!-- <h1>Add a new blog entry</h1> -->
+<!-- {% if error_msg %}
+<p style="color:red;">{{error_msg}}</p>
+{% endif %} -->
+
+<form action="/add-entry" method="POST">
+<table>
+    <tr>
+        <td colspan="3"><h2>Add A New Blog Entry</h2></td>
+    </tr>
+    <tr>
+        <td class="label">Title:</td>
+        <td><input name="title" type="text" value="{{entry_title}}" tabindex="1" autofocus></td>
+        <td>
+            <button type="submit" tabindex="3">Post entry</button>
+            <button type="reset" tabindex="4">Start over</button>
+        </td>
+    </tr>
+    <tr>
+        <td class="label">Blog entry:</td>
+        <td colspan="2">
+            <textarea name="body" tabindex="2">{{entry_body}}</textarea>
+        </td>
+    </tr>
+</table>
+</form>
+
+{% endblock %}

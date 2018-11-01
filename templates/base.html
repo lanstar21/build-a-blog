@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+
+    <title>Josh's Blog</title>
+</head>
+<body>
+    
+    <a href="/new-entry">Add New Blog Entry</a> |
+    <a href="/">View All Blog Entries</a><br>
+
+    {% with messages = get_flashed_messages(with_categories=True) %}
+        {% for category,message in messages %}
+        <span class="{{category}}">{{message}}</span>
+        {% endfor %}
+    {% endwith %}
+
+    {% block content %}
+    {% endblock %}
+    
+</body>
+</html>
